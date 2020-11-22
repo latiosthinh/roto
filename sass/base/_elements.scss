@@ -1,0 +1,139 @@
+html {
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+}
+
+body {
+	font-family: var(--font-main);
+	font-size: 14px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+
+.skip-link {
+	display: none;
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+	margin: 0;
+}
+
+p {
+	line-height: 25px;
+	margin: 0;
+}
+
+a,
+a:hover {
+	text-decoration: none;
+	color: var(--color-black);
+	outline: none;
+}
+
+img {
+	display: block;
+	object-fit: cover;
+	max-width: 100%;
+	width: 100%;
+}
+
+ul {
+	display: flex;
+	padding-left: 0;
+}
+
+#mobmenuleft, #mobmenuright {
+	flex-direction: column;
+}
+
+li {
+	list-style: none;
+}
+
+.slick-arrow {
+	cursor: pointer;
+}
+
+.single-post-content {
+	li {
+		list-style: circle;
+
+		ul {
+			padding-left: 15px;
+		}
+
+		li {
+			list-style: square;
+		}
+	}
+}
+
+.section-title {
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+
+	&:before {
+		content: url(images/slash.svg);
+		display: block;
+		margin-right: 13px;
+	}
+
+	& + p {
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+}
+
+@-webkit-keyframes mouse-wheel{
+	0% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(6px);
+		-ms-transform: translateY(6px);
+		transform: translateY(6px);
+	}
+}
+
+@keyframes mouse-wheel {
+	0%, 100% { transform: translateY(0); opacity: 1; }
+	50% { transform: translateY(13px); opacity: 0; }
+}
+
+@keyframes mouse-scroll {
+	0%   { opacity: 0; }
+	50%  { opacity: .5; }
+	100% { opacity: 1; }
+}
+
+[data-scroll] {
+	transition: all .7s;
+}
+
+[data-scroll="in"] {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+[data-scroll="out"] {
+	opacity: 0;
+	transform: translateY(25%);
+}
+
+@mixin set-lineMax($line, $lineHeight){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    line-height: $lineHeight;
+    max-height: calc(#{$lineHeight} * #{$line});
+}
