@@ -558,12 +558,40 @@
 	}
 }
 
-.swiper-wrapper {
-	z-index:3;
-}
-.swiper-pagination {
-	z-index:2;
-}
-.swiper-button-next, .swiper-button-prev {
-	z-index:4;
+.download {
+	padding-top: 30px;
+	padding-bottom: 60px;
+
+	h3 {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	th {
+		background: rgba( #696969, 0.6 );
+		color: #ffffff;
+	}
+
+	th, td {
+		height: 55px;
+		line-height: 55px;
+		padding-left: 10px;
+		padding-right: 10px;
+		border-left: 0;
+		border-right: 0;
+		border-bottom : 1px solid rgba( #696969, 0.4 );
+	}
+
+	a {
+		display: flex;
+		justify-content: center;
+	}
+
+	img {
+		width: 20px;
+	}
 }

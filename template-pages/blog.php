@@ -145,5 +145,58 @@ get_header();
 	</div>
 </section>
 
+<section class="download">
+	<div class="container">
+		<h2 class="section-title">Download</h2>
+
+		<div class="row">
+			<?php
+			$downloads = get_term_children( 14, 'category' );
+			
+			foreach ( $downloads as $id ):
+				$term = get_term( $id );
+			?>
+			<div class="col-6">
+				<h3><?= $term->name ?></h3>
+
+				<table cellspacing="0">
+					<thead>
+						<tr>
+							<th align="left">Tên hiển thị</th>
+							<th>Download</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						$posts = new WP_Query( [
+							'post_type'     => 'post',
+							'category_name' => $term->slug,
+							'posts_per_page'=> -1
+						] );
+
+						if ( $posts->have_posts() ) :
+							while ( $posts->have_posts() ) : $posts->the_post();
+						?>
+						<tr>
+							<td><?= get_the_title(); ?></td>
+							<td>
+								<a href="<?= rwmb_meta( 'url' ); ?>" target="_blank">
+									<img src="<?= NOVUS_IMG . '/download.svg' ?>">
+								</a>
+							</td>
+						</tr>
+						<?php
+							endwhile;
+						endif;
+						wp_reset_postdata(  );
+						?>
+					</tbody>
+				</table>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+
 <?php
 get_footer();
