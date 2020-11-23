@@ -7,7 +7,11 @@ get_header();
 
 <section class="tin-tuc-chung">
 	<div class="container">
-		<h2 class="section-title">Tin tức chung</h2>
+		<h2 class="section-title">
+			Tin tức chung
+
+			<div class="pagination"></div>
+		</h2>
 
 		<div class="row">
 			<div class="col-4">
@@ -15,11 +19,11 @@ get_header();
 			</div>
 
 			<div class="col-8">
-				<div class="row">
+				<div class="news-ttc-slider">
 				<?php
 				$ttc = new WP_Query([
 					'post_type'      => 'post',
-					'posts_per_page' => 4,
+					'posts_per_page' => -1,
 					'tax_query'      => [
 						[
 							'taxonomy' => 'category',
@@ -28,12 +32,16 @@ get_header();
 						]
 					],
 				]);
+
+				$total = $ttc->post_count;
 				
 				if ( $ttc->have_posts() ) :
-					while ( $ttc->have_posts() ) : $ttc->the_post();
+					$i = 0;
 				?>
+				<div class="item">
+				<?php while ( $ttc->have_posts() ) : $ttc->the_post(); ?>
 
-				<div class="col-6 item">
+				<div class="col-6 news-item">
 					<a href="<?php the_permalink() ?>">
 						<?php the_post_thumbnail( 'thumb-170' ) ?>
 					</a>
@@ -49,64 +57,39 @@ get_header();
 					</div>
 				</div>
 
-				<?php 
+				<?php
+						$i += 1;
+
+						if ( $i >= $total ) :
+							echo '</div>';
+						elseif ( $i%4 === 0 && $i < $total ):
+							echo '</div><div class="item">';
+						endif;
 					endwhile;
 				endif;
+				wp_reset_postdata(  );
 				?>
 				</div>
 			</div>
-
-			<?php
-				$ttc = new WP_Query([
-					'post_type' => 'post',
-					'offset'    => 4,
-					'tax_query' => [
-						[
-							'taxonomy' => 'category',
-							'field'    => 'slug',
-							'terms'    => 'tin-tuc-chung',
-						]
-					],
-				]);
-				
-				if ( $ttc->have_posts() ) :
-					while ( $ttc->have_posts() ) : $ttc->the_post();
-				?>
-
-				<div class="col-4 item">
-					<a href="<?php the_permalink() ?>">
-						<?php the_post_thumbnail( 'thumb-170' ) ?>
-					</a>
-
-					<div class="item-content">
-						<a href="<?php the_permalink() ?>">
-							<h3><?php the_title() ?></h3>
-							<span class="slash"></span>
-							<?php the_excerpt(); ?>
-
-							<?php novus_posted_on(); ?>
-						</a>
-					</div>
-				</div>
-
-				<?php 
-					endwhile;
-				endif;
-				?>
 		</div>
 	</div>
 </section>
 
 <section class="tin-tuc-san-pham">
 	<div class="container">
-		<h2 class="section-title">Tin tức sản phẩm</h2>
+		<h2 class="section-title">
+			Tin tức sản phẩm
+
+			<div class="pagination"></div>
+		</h2>
 
 		<div class="row">
 			<div class="col-6">
+				<div class="news-ttsp-slider">
 				<?php
 				$ttc = new WP_Query([
 					'post_type'      => 'post',
-					'posts_per_page' => 3,
+					'posts_per_page' => -1,
 					'tax_query'      => [
 						[
 							'taxonomy' => 'category',
@@ -115,12 +98,16 @@ get_header();
 						]
 					],
 				]);
+
+				$total = $ttc->post_count;
 				
 				if ( $ttc->have_posts() ) :
-					while ( $ttc->have_posts() ) : $ttc->the_post();
+					$i = 0;
 				?>
+					<div class="item">
+				<?php while ( $ttc->have_posts() ) : $ttc->the_post(); ?>
 
-				<div class="item">
+				<div class="news-item">
 					<a href="<?php the_permalink() ?>">
 						<?php the_post_thumbnail( 'thumb-260' ) ?>
 					</a>
@@ -136,53 +123,24 @@ get_header();
 					</div>
 				</div>
 
-				<?php 
+				<?php
+						$i += 1;
+
+						if ( $i >= $total ) :
+							echo '</div>';
+						elseif ( $i%3 === 0 && $i < $total ):
+							echo '</div><div class="item">';
+						endif;
 					endwhile;
 				endif;
+				wp_reset_postdata(  );
 				?>
+				</div>
 			</div>
-
 			<div class="col-6">
 				<img class="feature-img" src="<?= NOVUS_IMG . '/products/abc.jpg' ?>">
 			</div>
 
-			<?php
-				$ttc = new WP_Query([
-					'post_type' => 'post',
-					'offset'    => 3,
-					'tax_query' => [
-						[
-							'taxonomy' => 'category',
-							'field'    => 'slug',
-							'terms'    => 'tin-tuc-san-pham',
-						]
-					],
-				]);
-				
-				if ( $ttc->have_posts() ) :
-					while ( $ttc->have_posts() ) : $ttc->the_post();
-				?>
-
-				<div class="item col-6">
-					<a href="<?php the_permalink() ?>">
-						<?php the_post_thumbnail( 'thumb-260' ) ?>
-					</a>
-
-					<div class="item-content">
-						<a href="<?php the_permalink() ?>">
-							<h3><?php the_title() ?></h3>
-							<span class="slash"></span>
-							<?php the_excerpt(); ?>
-
-							<?php novus_posted_on(); ?>
-						</a>
-					</div>
-				</div>
-
-				<?php 
-					endwhile;
-				endif;
-				?>
 		</div>
 	</div>
 </section>

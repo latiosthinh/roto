@@ -28,25 +28,17 @@ while ( have_posts() ) :
 		<div class="row">
 			<?php if ( $images ) : ?>
 			<div class="col-5">
-				<div class="swiper-container galley-product">
-					<!-- Additional required wrapper -->
-					<div class="swiper-wrapper">
-						<?php foreach ( $images as $img ) : ?>
-							<img class="swiper-slide" src="<?= $img['sizes']['thumb-470']['url']; ?>">
-						<?php endforeach; ?>
-					</div>
+				<div class="gallery-product">
+					<?php foreach ( $images as $img ) : ?>
+						<img class="item" src="<?= $img['sizes']['thumb-470']['url']; ?>">
+					<?php endforeach; ?>
 				</div>
 				
-				<div class="swiper-container gallery-thumbs">
-					<div class="swiper-wrapper">
-						<?php foreach ( $images as $img ) : ?>
-							<img class="swiper-slide" src="<?= $img['sizes']['thumb-470']['url']; ?>">
-						<?php endforeach; ?>
-					</div>
-
-					
+				<div class="gallery-thumbs">
+					<?php foreach ( $images as $img ) : ?>
+						<img class="item" src="<?= $img['sizes']['thumb-470']['url']; ?>">
+					<?php endforeach; ?>
 				</div>
-				<div class="swiper-pagination"></div>
 			</div>
 			<?php endif; ?>
 
@@ -59,28 +51,26 @@ while ( have_posts() ) :
 
 <section class="product-related products">
 	<div class="container product-wrapper">
-		<h2 class="section-title">Sản phẩm tương tự</h2>
+		<h2>
+			Sản phẩm tương tự
 
-		<div class="product-items row">
+			<img src="<?= NOVUS_IMG . '/arrow.gif' ?>">
+		</h2>
+
+		<div class="product-slider">
 			<?php
 			$cua_di = new WP_Query([
 				'post_type'      => 'product',
-				'posts_per_page' => 4,
+				'posts_per_page' => 8,
 				'post__not_in'   => [ get_the_ID() ],
-				'tax_query'      => [
-					[
-						'taxonomy' => 'prod-category',
-						'field'    => 'slug',
-						'terms'    => get_the_terms( get_the_id(), 'prod-category')[0]->slug,
-					]
-				],
+				'order'          => 'rand'
 			]);
 			
 			if ( $cua_di->have_posts() ) :
 				while ( $cua_di->have_posts() ) : $cua_di->the_post();
 			?>
 
-			<div class="col-3 item">
+			<div class="item">
 				<a href="<?php the_permalink(); ?>">
 					<?php the_post_thumbnail( 'thumb-370' ) ?>
 				</a>

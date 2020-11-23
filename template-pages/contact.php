@@ -9,9 +9,19 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-7">
-				<a href="" target="_blank">
-					<img src="<?= NOVUS_IMG . '/map.jpg' ?>">
-				</a>
+				<h2 class="section-title">Phân phối toàn quốc</h2>
+
+				<p>
+				Công ty Cổ phần Đầu tư & Thiết kế Econtec VN <br>
+				Đại lý ủy quyền duy nhất của Roto Frank tại Việt Nam, Lào & Campuchia.
+				<br>
+				<br>
+
+				<b>Địa chỉ:</b> Số 23, ECONTEC Building, Trần Kim Xuyến, Yên homeHòa, Cầu Giấy, Hà Nội.<br>
+				<b>Tel:</b> 024 6269 8639/ 024 6269 8839<br>
+				<b>Website:</b> http://www.econtec.vn<br>
+				<b>Liên hệ:</b> 0977 963 737 
+				</p>
 			</div>
 
 			<div class="col-5">

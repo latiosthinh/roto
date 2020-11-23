@@ -245,17 +245,13 @@ function novus_breadcrumbs( $args = '' ) {
 			$title = get_the_title( $page );
 		}
 	} elseif ( is_post_type_archive() ) {
-
 		// If post is a custom post type.
 		$query     = get_queried_object();
 		$post_type = $query->name;
-		if ( 'auto-listing' === $post_type ) {
-			$title = esc_html__( 'Inventory', 'novus' );
-		} else if ( 'post' !== $post_type ) {
-			$post_type_object       = get_post_type_object( $post_type );
-			$post_type_archive_link = get_post_type_archive_link( $post_type );
-			$title                  = $post_type_object->labels->menu_name;
-		}
+		
+		$post_type_object       = get_post_type_object( $post_type );
+		$post_type_archive_link = get_post_type_archive_link( $post_type );
+		$title                  = $post_type_object->labels->menu_name;
 	} elseif ( is_single() ) {
 
 		// If post is a custom post type.

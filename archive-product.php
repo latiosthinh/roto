@@ -49,10 +49,8 @@ get_header();
 					<?php the_post_thumbnail( 'thumb-370' ) ?>
 				</a>
 				<a href="<?php the_permalink(); ?>">
-					<?php $title = explode( '.', get_the_title() ); ?>
 					<h3 class="item-title">
-						<?= $title[0] ?>
-						<span><?= $title[1] ?></span>
+						<?= get_the_title(); ?>
 					</h3>
 				</a>
 			</div>
@@ -60,6 +58,7 @@ get_header();
 			<?php 
 				endwhile;
 			endif;
+			wp_reset_postdata(  );
 			?>
 		</div>
 	</div>
@@ -102,6 +101,7 @@ get_header();
 			<?php 
 				endwhile;
 			endif;
+			wp_reset_postdata(  );
 			?>
 		</div>
 	</div>

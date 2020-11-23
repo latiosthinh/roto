@@ -35,3 +35,58 @@ function novus_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'novus_pingback_header' );
+
+/**
+ * Route for news
+ */
+
+function novusPostQuery( $params ) {
+
+	$perpage  = 6;
+	$offset   = ( isset( $params[ 'offset' ] ) ) ? $params[ 'offset' ] : 0;
+	$orderby  = 'date';
+	$order    = 'DESC';
+
+	$args = [
+		'post_type'   => 'post',
+		// 'numberposts' => $perpage,
+		'offset'      => $offset,
+		'orderby'     => $orderby,
+		'order'       => $order,
+	];
+
+	if ( isset( $params[ 'categories' ] ) ) {
+		$args[ 'category__in' ] = explode( "," , $params[ 'categories' ] );
+	}
+
+	// get posts
+	$posts = new WP_Query( $args );
+
+	$data = [];
+	$i = 0;
+
+	// add custom field data to posts array
+	foreach ($posts as $post) {
+		// var_dump( $post );
+		$thumbnail = get_the_post_thumbnail_url( $post->ID, 'thumb-370' );
+
+		$data[ $i ][ 'id' ]              = $post->ID;
+		$data[ $i ][ 'link' ]            = get_permalink( $post->ID );
+		$data[ $i ][ 'title' ]           = $post->post_title;
+		$data[ $i ][ 'date' ]            = $post->post_date;
+		$data[ $i ][ 'thumbnail' ]       = $thumbnail;
+		$data[ $i ][ 'excerpt' ]         = $post->post_excerpt;
+
+		$i++;
+	}
+	return $data;
+}
+
+// register the endpoint
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'novus/v1', 'posts/', [
+		'methods' => 'GET',
+		'callback' => 'novusPostQuery',
+		'permission_callback' => '__return_true',
+	] );
+} );

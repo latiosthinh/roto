@@ -25,6 +25,7 @@
 	padding: 20px 0;
 	text-align: center;
 	color: var(--color-base-w);
+	margin-bottom: 0 !important;
 
 	a {
 		color: var(--color-accent);
@@ -36,6 +37,7 @@
 	z-index: 10;
 	top: 24%;
 	right: 0;
+	width: 40px;
 	display: flex;
 	flex-direction: column;
 
@@ -47,11 +49,11 @@
 		width: 150px;
 		color: #ffffff;
 		background: var(--color-accent);
-		transform: translateX(73%);
+		// transform: translateX(73%);
 		transition: .2s;
 
 		&:hover {
-			transform: translateX(0);
+			transform: translateX( -73% );
 		}
 	}
 

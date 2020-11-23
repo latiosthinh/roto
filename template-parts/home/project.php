@@ -8,41 +8,60 @@
 	</div>
 
 	<div class="container">
-		<div data-scroll class="row">
+		<div data-scroll class="row tabs">
 			<?php
-			$projects = new WP_Query([
-				'post_type'      => 'project',
-				'posts_per_page' => 3
-			]);
+			$cat_terms = get_terms( 'project-category', [
+									'hide_empty' => false,
+									'order'      => DESC
+								] );
 
-			if ( $projects->have_posts() ) :
-				$count = 1;
-				while ( $projects->have_posts() ) : $projects->the_post();
+			foreach ( $cat_terms as $term ) :
 			?>
 
-			<div class="col-4 item">
-				<a href="<?php the_permalink(); ?>">
-					<?php the_post_thumbnail( 'thumb-420' ) ?>
-				
-					<h3 class="item-title">
-						<span>REFERENCE</span>
-						<?php the_title(); ?>
-					</h3>
-				</a>
+			<a class="col-6 tab-link" href="#projects-<?= $term->term_id ?>">
+				<?php $term_img = rwmb_meta( 'feature_img', [ 'object_type' => 'term' ], $term->term_id ); ?>
+				<img src="<?= $term_img['sizes']['thumb-420']['url'] ?>">
+				<span><?= $term->name ?></span>
+			</a>
 
-				<?php if ( $count == 2 ) : ?>
-					<a class="projects-url" href="<?= home_url( '/projects' ) ?>">
-						<h3>CREATES INNER VALUE</h3>
-						<p>Discover other projects</p>
-					</a>
-				<?php endif; ?>
+			<?php endforeach; ?>
+
+			<?php foreach ( $cat_terms as $term ) : ?>
+
+			<div id="projects-<?= $term->term_id ?>" class="col-12 tab-panel">
+				<div class="row">
+					<?php
+					$projects = new WP_Query( [
+						'post_type'      => 'project',
+						'tax_query'      => [
+							'taxonomy' => 'project-category',
+							'field'    => 'id',
+							'terms'    => [ $term->$term_id ]
+						],
+						'posts_per_page' => 8
+					] );
+
+					if ( $projects->have_posts() ) :
+						while ( $projects->have_posts() ) :
+							$projects->the_post();
+					?>
+						<div class="col-3 item">
+							<a href="<?= get_the_permalink(); ?>" style="background:url(<?= get_the_post_thumbnail_url( get_the_ID(), 'thumb-370' ) ?>) center center / cover">
+								<h2><?= get_the_title(); ?></h2>
+							</a>
+						</div>
+					<?php
+						endwhile;
+					endif;
+					?>
+				</div>
 			</div>
 
-			<?php
-					$count += 1;
-				endwhile;
-			endif;
-			?>
+			<?php endforeach; ?>
+		</div>
+		
+		<div data-scroll class="row projects-url">
+			<a href="<?= home_url( '/projects' ) ?>">XEM THÊM</a>
 		</div>
 	</div>
 </section>

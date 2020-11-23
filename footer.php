@@ -15,41 +15,39 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-6">
-					<h3>VĂN PHÒNG ĐẠI DIỆN</h3>
 					<p>
-					C9 Mandarin Garden, Hoàng Minh Giám, Cầu Giấy, Hà Nội <br>
-					Hotline: 0983 500 860
-					</p>
+					<b>Tel: </b> 0246 282 6500
+					<br>
 
-					<h3>HỆ THỐNG SHOWROOM</h3>
-					<p>
-					Tại Hà Nội: <br>
-					Số 23, Trần Kim Xuyến, Yên Hòa, Cầu Giấy, Hà Nội.<br>
-					C9 Toà nhà Hoà Phát, Hoàng Minh Giám, Cầu Giấy, Hà Nội.
-					</p>
+					<b>Email:</b> info@roto-frank.com.vn
+					<br>
+					<br>
 
-					<p>
-					Tại Nghệ An:<br>
-					246 Trường Chinh – P. Lê Lợi, Tp. Vinh, Nghệ An<br>
-					Liên hệ: 094 77 888 77
+					<b>THỜI GIAN LÀM VIỆC</b><br>
+					Thứ 2-6: 8:00 - 17:00<br>
+					Thứ 7, CN: Theo lịch hẹn
 					</p>
-				</div>
-
-				<div class="col-6">
-					<h3>PHÂN PHỐI TOÀN QUỐC</h3>
-
-					<p>
-					Công ty Cổ phần Đầu tư & Thiết kế Econtec VN - Đại lý ủy quyền duy nhất của <br>Roto Frank tại Việt Nam, Lào & Campuchia. <br>
-					Địa chỉ: Số 23, ECONTEC Building, Trần Kim Xuyến, Yên Hòa, Cầu Giấy, Hà Nội.<br>
-					Tel: 024 6269 8639/ 024 6269 8839;<br>
-					Website: http://www.econtec.vn<br>
-					Liên hệ: 0977 963 737 <br>
-					</p>
+					<br>
 
 					<ul>
 						<li><a href="https://www.facebook.com/rotovietnamofficial" target="_blank"><img src="<?= NOVUS_IMG . '/facebook.svg' ?>" alt="facebook"></a></li>
 						<li><a href="https://www.youtube.com/channel/UCReRhtrhnv6NVPMvL3i-2sA" target="_blank"><img src="<?= NOVUS_IMG . '/youtube.svg' ?>" alt="youtube"></a></li>
 					</ul>
+				</div>
+
+				<div class="col-6">
+					<h3>HỆ THỐNG SHOWROOM</h3>
+					<p>
+					<b>Tại Hà Nội: </b><br>
+					Số 23, Trần Kim Xuyến, Yên Hòa, Cầu Giấy, Hà Nội.<br>
+					C9 Toà nhà Hoà Phát, Hoàng Minh Giám, Cầu Giấy, Hà Nội.
+					</p>
+
+					<p>
+					<b>Tại Nghệ An:</b><br>
+					246 Trường Chinh – P. Lê Lợi, Tp. Vinh, Nghệ An<br>
+					Liên hệ: 094 77 888 77
+					</p>
 				</div>
 			</div>
 		</div>

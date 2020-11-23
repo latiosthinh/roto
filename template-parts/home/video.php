@@ -12,20 +12,10 @@
 				<h3>THÔNG TIN LIÊN HỆ</h3>
 
 				<p>
-					VPĐD, Showroom giới thiệu sản phẩm: <br>
-
-					Roto Frank Vietnam, C9 Mandarin Garden, Hoàng Minh Giám, Trung Hoà,<br>
-					Cầu Giấy, Hà Nội<br>
-
-					Tel: 0246 282 6500<br>
-
-					Email: info@roto-frank.com.vn
-				</p>
-
-				<h3>THỜI GIAN LÀM VIỆC</h3>
-				<p>
-					Thứ 2-6: 8:00 - 17:00<br>
-					Thứ 7, CN: Tạm nghỉ
+					<b>VPĐD, Showroom giới thiệu sản phẩm:</b>
+					Roto Frank Vietnam, C9 Mandarin Garden, Hoàng Minh Giám, Trung Hoà, <br>
+					Cầu Giấy, Hà Nội <br>
+					Hotline: 0983 500 860
 				</p>
 			</div>
 
@@ -42,7 +32,7 @@
 
 				// echo rwmb_meta( 'home_map', $args, get_queried_object_id() );
 				?>
-				<a href="" target="_blank">
+				<a href="https://www.google.com/maps/place/Roto+Vietnam/@21.0055666,105.7973599,17z/data=!3m1!4b1!4m5!3m4!1s0x3135ad70db206267:0xe0c7b9a33fb79d00!8m2!3d21.0055616!4d105.7995486" target="_blank">
 					<img src="<?= NOVUS_IMG . '/map.jpg' ?>">
 				</a>
 			</div>

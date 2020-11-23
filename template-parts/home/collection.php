@@ -21,7 +21,7 @@
 				$cua_so_number = new WP_Query( [ 'prod-category' => $c ] );
 				?>
 				<a class="item-thumb" href="<?= get_category_link( $cua_so ) ?>">
-					<img src="<?= $cua_so_img['sizes']['thumb-420']['url'] ?>">
+					<img src="<?= $cua_so_img['full_url'] ?>">
 				</a>
 
 				<a href="<?= get_category_link( $cua_so ) ?>">

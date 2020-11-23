@@ -60,10 +60,8 @@ foreach ( $ids as $term_id ) :
 					<?php the_post_thumbnail( 'thumb-370' ) ?>
 				</a>
 				<a href="<?php the_permalink(); ?>">
-					<?php $title = explode( '.', get_the_title() ); ?>
 					<h3 class="item-title">
-						<?= $title[0] ?>
-						<span><?= $title[1] ?></span>
+						<?= get_the_title() ?>
 					</h3>
 				</a>
 			</div>

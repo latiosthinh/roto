@@ -11,6 +11,7 @@ if ( ! defined( 'NOVUS_VERSION' ) ) {
 	define( 'NOVUS_VERSION', '1.0.0' );
 	define( 'NOVUS_IMG', get_template_directory_uri() . '/images' );
 	define( 'NOVUS_JS', get_template_directory_uri() . '/js' );
+	define( 'NOVUS_ASSETS', get_template_directory_uri() . '/assets' );
 }
 
 if ( ! function_exists( 'novus_setup' ) ) :
@@ -83,13 +84,13 @@ function novus_widgets_init() {
 add_action( 'widgets_init', 'novus_widgets_init' );
 
 function novus_scripts() {
-	if ( is_singular( 'product' ) || is_archive( 'product' ) || is_front_page() ) {
-		wp_enqueue_style( 'swiper', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', [], NOVUS_VERSION );
-		wp_enqueue_script( 'swiper', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', ['jquery'], NOVUS_VERSION, true );
+	if ( is_singular( 'product' ) || is_archive( 'product' ) || is_archive( 'project' ) || is_singular( 'project' ) || is_page_template( 'template-pages/blog.php' ) || is_front_page() ) {
+		wp_enqueue_style( 'swiper', NOVUS_ASSETS . '/slick.css', [], NOVUS_VERSION );
+		wp_enqueue_script( 'swiper', NOVUS_ASSETS . '/slick.js', ['jquery'], NOVUS_VERSION, true );
 	}
 	wp_enqueue_style( 'novus-style', get_stylesheet_uri(), [], NOVUS_VERSION );
 
-	wp_enqueue_script( 'scrollout', 'https://unpkg.com/scroll-out/dist/scroll-out.min.js', [], NOVUS_VERSION, true );
+	wp_enqueue_script( 'scrollout', NOVUS_ASSETS . '/scrollout.js', [], NOVUS_VERSION, true );
 	wp_enqueue_script( 'novus-script', NOVUS_JS . '/script.js', [], NOVUS_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'novus_scripts' );

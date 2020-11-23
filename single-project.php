@@ -3,26 +3,49 @@ get_header();
 ?>
 
 <div class="container">
-	<h1><?php the_title(); ?></h1>
-
-	<?php the_post_thumbnail( 'full' ) ?>
-
 	<div class="row project-info">
-		<div class="col-7">
-			<h2>Information about the reference project</h2>
+		<div class="col-6">
+			<h1><?php the_title(); ?></h1>
+
 			<p><?= rwmb_meta( 'project_info' ) ?></p>
 		</div>
 
-		<div class="col-5">
-			<img src="<?= rwmb_meta( 'project_info_image' )['sizes']['thumb-470']['url'] ?>">
+		<div class="col-6">
+			<div class="single-project-slider">
+				<?php foreach( rwmb_meta( 'images' ) as $img ) : ?>	
+					<img src="<?= $img['sizes']['thumb-470']['url'] ?>">
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </div>
 
-<section class="project-gallery masonry masonry--h">
-	<?php foreach( rwmb_meta( 'images' ) as $img ) : ?>	
-		<img class="masonry--h masonry-brick--h" src="<?= $img['sizes']['large']['url'] ?>">
-	<?php endforeach; ?>
+<section class="project-related">
+	<div class="container">
+		<div class="row">
+			<?php
+			$projects = new WP_Query( [
+				'post_type'      => 'project',
+				'posts_per_page' => 4,
+				'post__not_in'   => [get_the_ID()],
+				'orderby'        => 'rand',
+			] );
+
+			if ( $projects->have_posts() ) :
+				while ( $projects->have_posts() ) :
+					$projects->the_post();
+			?>
+			<div class="col-3 item">
+				<a href="<?= get_the_permalink(); ?>" style="background:url(<?= get_the_post_thumbnail_url( get_the_ID(), 'thumb-370' ) ?>) center center / cover">
+					<h2><?= get_the_title(); ?></h2>
+				</a>
+			</div>
+			<?php
+				endwhile;
+			endif;
+			?>
+		</div>
+	</div>
 </section>
 
 <?php
