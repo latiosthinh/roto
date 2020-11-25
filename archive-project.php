@@ -2,13 +2,8 @@
 get_header();
 ?>
 
-<section class="projects-banner" style="background:url( <?= NOVUS_IMG . '/project.jpg' ?> ) center center / cover">
-	<div class="container">
-		<h2 data-scroll>Project references</h2>
-		<p data-scroll>
-			Windows flood living spaces with light, ensure a clear view and provide protection from the weather and environment. With their timeless design and intelligent technology, Schüco window systems create visual accents. Their excellent thermal insulation also saves on energy costs, increasing the value of your home and conserving the environment.
-		</p>
-	</div>
+<section class="projects-banner">
+    <img src="<?= NOVUS_IMG . '/project-banner.jpg' ?>">
 </section>
 
 <?= novus_breadcrumbs(); ?>

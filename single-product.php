@@ -30,13 +30,13 @@ while ( have_posts() ) :
 			<div class="col-5">
 				<div class="gallery-product">
 					<?php foreach ( $images as $img ) : ?>
-						<img class="item" src="<?= $img['sizes']['thumb-470']['url']; ?>">
+						<img class="item" src="<?= $img['sizes']['thumb-470'] ? $img['sizes']['thumb-470']['url'] : $img['full_url']; ?>">
 					<?php endforeach; ?>
 				</div>
 				
 				<div class="gallery-thumbs">
 					<?php foreach ( $images as $img ) : ?>
-						<img class="item" src="<?= $img['sizes']['thumb-470']['url']; ?>">
+						<img class="item" src="<?= $img['sizes']['thumb-170'] ? $img['sizes']['thumb-170']['url'] : $img['full_url']; ?>">
 					<?php endforeach; ?>
 				</div>
 			</div>

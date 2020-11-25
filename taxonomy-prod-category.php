@@ -62,6 +62,7 @@ foreach ( $ids as $term_id ) :
 				<a href="<?php the_permalink(); ?>">
 					<h3 class="item-title">
 						<?= get_the_title() ?>
+						<span><?= rwmb_meta( 'brief' ); ?></span>
 					</h3>
 				</a>
 			</div>

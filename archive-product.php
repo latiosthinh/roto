@@ -35,7 +35,7 @@ get_header();
 					[
 						'taxonomy' => 'prod-category',
 						'field'    => 'slug',
-						'terms'    => 'cua-di',
+						'terms'    => 'phu-kien-cua-di',
 					]
 				],
 			]);
@@ -50,7 +50,8 @@ get_header();
 				</a>
 				<a href="<?php the_permalink(); ?>">
 					<h3 class="item-title">
-						<?= get_the_title(); ?>
+						<?= get_the_title() ?>
+						<span><?= rwmb_meta( 'brief' ); ?></span>
 					</h3>
 				</a>
 			</div>
@@ -76,7 +77,7 @@ get_header();
 					[
 						'taxonomy' => 'prod-category',
 						'field'    => 'slug',
-						'terms'    => 'cua-so',
+						'terms'    => 'phu-kien-cua-so',
 					]
 				],
 			]);
@@ -85,15 +86,14 @@ get_header();
 				while ( $cua_so->have_posts() ) : $cua_so->the_post();
 			?>
 
-			<div class="swiper-slide item">
+			<div class="item">
 				<a href="<?php the_permalink(); ?>">
 					<?php the_post_thumbnail( 'thumb-370' ) ?>
 				</a>
 				<a href="<?php the_permalink(); ?>">
-					<?php $title = explode( '.', get_the_title() ); ?>
 					<h3 class="item-title">
-						<?= $title[0] ?>
-						<span><?= $title[1] ?></span>
+						<?= get_the_title() ?>
+						<span><?= rwmb_meta( 'brief' ); ?></span>
 					</h3>
 				</a>
 			</div>

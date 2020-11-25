@@ -29,7 +29,7 @@ while ( have_posts() ) :
 </section>
 
 <section class="product-menu">
-	<div data-scroll class="container">
+	<div class="container">
 		<?php wp_nav_menu( ['theme_location' => 'menu-2'] ); ?>
 	</div>
 </section>

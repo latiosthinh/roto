@@ -1,39 +1,12 @@
-.post-type-archive-project {
-	.projects-banner {
-		color: #ffffff;
-		padding: 90px 0px;
-		position: relative;
-		margin-bottom: 50px;
+.projects-banner {
+	margin-bottom: 50px;
 
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: rgba(#000, .5);
-		}
-
-		h2 {
-			font-size: 48px;
-
-			@media all and (max-width: 992px) {
-				font-size: 30px;
-			}
-		}
-
-		p {
-			display: block;
-			max-width: 60%;
-
-			@media all and (max-width: 992px) {
-				max-width: 100%;
-			}
-		}
+	img {
+		width: 100%;
 	}
+}
 
+.post-type-archive-project {
 	.projects {
 		p {
 			margin-bottom: 40px;
@@ -166,6 +139,18 @@
 	}
 }
 
+.page-template-default {
+	h1 {
+		font-size: 40px;
+		font-weight: normal;
+		margin-bottom: 20px;
+
+		@media all and ( max-width: 991px) {
+			font-size: 30px;
+		}
+	}
+}
+
 .project-related {
 	margin-bottom: 60px;
 
@@ -202,23 +187,11 @@
 	}
 }
 
-.breadcrumbs-wrapper + .banner {
+.breadcrumbs-wrapper + .banner, .site-header + .banner {
 	color: #ffffff;
 	padding-top: 65px;
 	padding-bottom: 150px;
 	position: relative;
-
-	&:before {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-		background: rgba( #000, .6 );
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 0;
-	}
 
 	.container {
 		position: relative;
@@ -227,7 +200,7 @@
 
 	p {
 		display: block;
-		width: 35%;
+		width: 45%;
 
 		@media all and (max-width:991px) {
 			width: 100%;
@@ -256,6 +229,10 @@
 	.products {
 		margin-top: 45px;
 		overflow-x: hidden;
+
+		&+footer {
+			margin-top: 60px;
+		}
 
 		h2 {
 			margin-bottom: 25px;
@@ -333,6 +310,29 @@
 	}
 }
 
+.product-wrapper {
+	h2 {
+		padding-left: 25px;
+		position: relative;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 5px;
+			height: 5px;
+			background: var(--color-accent);
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+		}
+	}
+
+	.slick-track {
+		margin-left: 0;
+	}
+}
+
 .product-content {
 	.row {
 		justify-content: space-between;
@@ -344,6 +344,18 @@
 
 	@media all and (max-width:991px) {
 		margin-bottom: 40px;
+	}
+
+	.slick-list {
+		margin: 0 -5px;
+
+		.slick-track {
+			margin-left: 0;
+		}
+	}
+
+	.item {
+		padding: 0 5px;
 	}
 }
 
@@ -369,8 +381,10 @@
 		flex-wrap: wrap;
 	}
 
-	.slick-list {
-		margin: 0 -15px;
+	.tin-tuc-chung {
+		.slick-list {
+			margin: 0 -15px;
+		}
 	}
 
 	.slick-dots {
@@ -527,6 +541,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background: rgba( #000, 0.5 );
 		transition: .2s;
 
 		span {
@@ -545,7 +560,7 @@
 		}
 
 		&:hover {
-			background: rgba( #000, 0.6 );
+			background: rgba( #000, 0.7 );
 
 			span {
 				background: var(--color-accent);

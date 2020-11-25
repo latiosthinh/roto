@@ -2,6 +2,13 @@
 	position: relative;
 	padding: 240px 0;
 
+	&__content {
+		@media all and (min-width:992px) {
+			padding-right: 25px;
+			text-align: right;
+		}
+	}
+
 	h1 {
 		color: var(--color-accent);
 		font-size: 64px;
@@ -140,12 +147,18 @@
 		}
 
 		h4 {
-			display: inline-flex;
+			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			font-weight: normal;
 			border-bottom: 1px solid #656565;
 			width: 100%;
+
+			p {
+				display: inline-flex;
+				align-items: center;
+				text-align: right;
+			}
 
 			@media all and (min-width:992px) {
 				width: 75%;
@@ -155,6 +168,7 @@
 				font-weight: bold;
 				color: var(--color-accent);
 				font-size: 30px;
+				margin-left: 15px;
 			}
 		}
 
@@ -551,5 +565,9 @@
 
 	h1 {
 		margin-bottom: 20px;
+	}
+
+	ul {
+		flex-direction: column;
 	}
 }
