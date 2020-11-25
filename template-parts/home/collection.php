@@ -3,7 +3,8 @@
 		<h2 data-scroll class="section-title">SẢN PHẨM</h2>
 		<p>
 			Thương hiệu Roto có mặt tại thị trường Việt Nam từ năm 1998, với Văn phòng đại diện được <br>
-			thành lập năm 2010, hướng tới mục tiêu mở rộng thị trường tại một trong những khu vực có tốc độ phát triển nhanh nhất Đông Nam Á
+			thành lập năm 2010, hướng tới mục tiêu mở rộng thị trường tại một trong những khu vực có <br>
+			tốc độ phát triển nhanh nhất Đông Nam Á
 		</p>
 	</div>
 
@@ -11,6 +12,13 @@
 		<div data-scroll class="product-items row">
 			<?php
 			$collections = rwmb_meta( 'chosen_collections', null, get_the_ID() );
+
+			$temp = [];
+			$temp.push( $collections[2] );
+			$temp.push( $collections[3] );
+			$temp.push( $collections[0] );
+			$temp.push( $collections[1] );
+			var_dump( $temp );
 			
 			foreach( $collections as $c ) :
 			?>

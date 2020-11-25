@@ -34,9 +34,11 @@
 					$projects = new WP_Query( [
 						'post_type'      => 'project',
 						'tax_query'      => [
-							'taxonomy' => 'project-category',
-							'field'    => 'id',
-							'terms'    => [ $term->$term_id ]
+							[
+								'taxonomy' => 'project-category',
+								'field'    => 'id',
+								'terms'    => [$term->term_id]
+							]
 						],
 						'posts_per_page' => 8
 					] );

@@ -45,7 +45,7 @@
 					<img src="<?= NOVUS_IMG . '/factory.svg' ?>">
 					<p>
 					Nhà máy tại 4 lục địa
-					<span>18</span>
+					<span>20+</span>
 					</p>
 				</h4>
 			</div>
@@ -75,7 +75,7 @@
 				<img src="<?= NOVUS_IMG . '/bookmark.svg' ?>">
 				<p>
 					Năm kinh nghiệm tại thị trường cửa trong nước
-					<span>18</span>
+					<span>20+</span>
 				</p>
 				</h4>
 			</div>

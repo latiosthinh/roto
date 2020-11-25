@@ -12,9 +12,9 @@
 				<h3>THÔNG TIN LIÊN HỆ</h3>
 
 				<p>
-					<b>VPĐD, Showroom giới thiệu sản phẩm:</b>
-					Roto Frank Vietnam, C9 Mandarin Garden, Hoàng Minh Giám, Trung Hoà, <br>
-					Cầu Giấy, Hà Nội <br>
+					<b>VPĐD, Showroom giới thiệu sản phẩm:</b> <br>
+					Roto Frank Vietnam, C9 Mandarin Garden, Hoàng Minh Giám, <br>
+					Trung Hoà, Cầu Giấy, Hà Nội <br>
 					Hotline: 0983 500 860
 				</p>
 			</div>
