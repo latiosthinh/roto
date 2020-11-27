@@ -19,7 +19,7 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 ?>
-<section class="banner" style="background:url(<?php the_post_thumbnail_url( 'full' ) ?>) center / cover no-repeat;max-height:450px">
+<section class="banner" style="background:url(<?php the_post_thumbnail_url( 'full' ) ?>) center / cover no-repeat">
 	<div class="container">
 		<h1 data-scroll>Barrier-free windows and doors</h1>
 		<p data-scroll>

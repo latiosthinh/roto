@@ -26,6 +26,12 @@ get_header();
 
 <section class="project-related">
 	<div class="container">
+		<h2 class="section-title">Dự án tương tự</h2>
+		<p>
+			Tại Roto, chúng tôi tin tưởng rằng chìa khoá của sự thành công được tạo ra <br>
+			từ niềm tin và chữ tín với khách hàng. Vì vậy tại mỗi đất nước, Roto luôn lắng nghe,<br>
+			học hỏi văn hoá địa phương để thấu hiểu nhu cầu của khách hàng
+		</p>
 		<div class="row">
 			<?php
 			$projects = new WP_Query( [

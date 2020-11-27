@@ -3,7 +3,7 @@ get_header();
 
 $cat_banner = rwmb_meta( 'banner', [ 'object_type' => 'term' ], get_queried_object()->term_id );
 $cat_title  = rwmb_meta( 'title', [ 'object_type' => 'term' ], get_queried_object()->term_id );
-$cat_des    = rwmb_meta( 'description', [ 'object_type' => 'term' ], get_queried_object()->term_id );
+$cat_des    = term_description( get_queried_object()->term_id );
 ?>
 
 <section class="banner" style="background:url(<?= $cat_banner ?>) center / cover no-repeat">

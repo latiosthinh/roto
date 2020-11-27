@@ -49,6 +49,10 @@ while ( have_posts() ) :
 	</div>
 </section>
 
+<?php
+var_dump(wp_get_post_terms( get_the_ID(), 'prod-category' ));
+?>
+
 <section class="product-related products">
 	<div class="container product-wrapper">
 		<h2>
@@ -61,6 +65,13 @@ while ( have_posts() ) :
 			<?php
 			$cua_di = new WP_Query([
 				'post_type'      => 'product',
+				'tax_query'      => [
+					[
+						'taxonomy' => 'prod-category',
+						'field'    => 'id',
+						'terms'    => [wp_get_post_terms( get_the_ID(), 'prod-category' )->term_id]
+					]
+				],
 				'posts_per_page' => 8,
 				'post__not_in'   => [ get_the_ID() ],
 				'order'          => 'rand'

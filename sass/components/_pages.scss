@@ -82,7 +82,6 @@
 
 .single-project {
 	h1 {
-		font-weight: normal;
 		font-size: 48px;
 
 		@media all and (max-width:991px) {
@@ -141,12 +140,11 @@
 
 .page-template-default {
 	h1 {
-		font-size: 40px;
+		font-size: 48px;
 		font-weight: normal;
-		margin-bottom: 20px;
 
-		@media all and ( max-width: 991px) {
-			font-size: 30px;
+		@media all and (max-width:991px) {
+			font-size: 25px;
 		}
 	}
 }
@@ -189,9 +187,12 @@
 
 .breadcrumbs-wrapper + .banner, .site-header + .banner {
 	color: #ffffff;
-	padding-top: 65px;
-	padding-bottom: 150px;
+	padding: 220px 0;
 	position: relative;
+
+	@media all and (max-width:991px) {
+		padding: 95px 0;
+	}
 
 	.container {
 		position: relative;
@@ -200,7 +201,7 @@
 
 	p {
 		display: block;
-		width: 45%;
+		width: 65%;
 
 		@media all and (max-width:991px) {
 			width: 100%;
@@ -390,8 +391,12 @@
 	.slick-dots {
 
 		button {
-			text-indent: 0;
+			text-indent: unset;
 			background: none !important;
+			width: 25px;
+			height: 25px;
+			border-radius: 0;
+			border: 1px solid;
 		}
 
 		li {
